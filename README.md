@@ -6,7 +6,7 @@ In case a MySQL database is corrupted such as only its internal state is corrupt
 **CAUTION Please ensure backing up a MySQL database directory before proceeding with the below steps**
 
 ## Steps to recover MySQL tables in ibd format
-1. Copy **ibdata1** from **/var/db/mysql/**  to a working directory for the recovery procedure and run the following command to parse it:
+1. Copy **ibdata1** from **/var/db/mysql/**  to a working directory for the recovery procedure and run the following command to parse **ibdata1** file:
 ```
 ./stream_parser -f ibdata1
 ```
