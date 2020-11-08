@@ -3,7 +3,7 @@ Instructions to recover a corrupted MySQL database
 
 In case a MySQL database is corrupted such as only its internal state is corrupted but data itself is intact it may still be possible to recover a database. The symptom of such corruption is that MySQL has failed to load database tables due to corrupted or missing indexes. The sample error logging when such corruption has happened looks as follows:
 ```
-2020-03-08T19:52:25.634251Z 0 [ERROR] [FATAL] InnoDB: Table flags are 0 in the data dictionary but the flags in file /data/db/mysql/ibdata1 are 0x4800!
+2020-03-08T19:52:25.634251Z 0 [ERROR] [FATAL] InnoDB: Table flags are 0 in the data dictionary but the flags in file /var/db/mysql/ibdata1 are 0x4800!
 0x7af00e <handle_fatal_signal+0x2ae> at /usr/local/libexec/mysqld
 2020-03-08 15:52:25 0x804418000  InnoDB: Assertion failure in thread 34431139840 in file ut0ut.cc line 918
 InnoDB: We intentionally generate a memory trap.
