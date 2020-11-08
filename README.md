@@ -5,7 +5,7 @@ In case a MySQL database is corrupted such as only its internal state is corrupt
 
 **CAUTION Please ensure backing up a MySQL database directory before proceeding with the below steps**
 
-## Steps to recover MySQL tables in ibd format
+# Steps to recover MySQL tables in ibd format
 1. Copy **ibdata1** from **/var/db/mysql/**  to a working directory for the recovery procedure and run the following command to parse **ibdata1** file:
 ```
 ./stream_parser -f ibdata1
@@ -34,10 +34,10 @@ In case a MySQL database is corrupted such as only its internal state is corrupt
 ```
 mysql --loose-local-infile=1 -u root -p -D <database_name> < load_cmd.sq
 ```
-# The steps are to be repeated for each corrupted table
+## The steps are to be repeated for each corrupted table
 
-## Steps to recover MySQL tables in ISAM format
-# Usually these steps apply to a WordPress database
+# Steps to recover MySQL tables in ISAM format
+## Usually these steps apply to a WordPress database
 
 1. Go to the following directory **/var/db/mysql/<database_name>** and run the following command:
 ```
