@@ -1,7 +1,20 @@
 # MySQLDatabaseRecovery
 Instructions to recover a corrupted MySQL database
 
-In case a MySQL database is corrupted such as only its internal state is corrupted but data itself is intact it may still be possible to recover a database. The symptom of such corruption is that MySQL has failed to load database tables due to corrupted or missing indexes. To  achieve this a set of utilities from the [Undrop-for-innodb](https://github.com/maxsteciuk/undrop-for-innodb) repository is used.
+In case a MySQL database is corrupted such as only its internal state is corrupted but data itself is intact it may still be possible to recover a database. The symptom of such corruption is that MySQL has failed to load database tables due to corrupted or missing indexes. The sample error logging when such corruption has happened looks as follows:
+```
+2020-03-08T19:52:25.634251Z 0 [ERROR] [FATAL] InnoDB: Table flags are 0 in the data dictionary but the flags in file /data/db/mysql/ibdata1 are 0x4800!
+0x7af00e <handle_fatal_signal+0x2ae> at /usr/local/libexec/mysqld
+2020-03-08 15:52:25 0x804418000  InnoDB: Assertion failure in thread 34431139840 in file ut0ut.cc line 918
+InnoDB: We intentionally generate a memory trap.
+InnoDB: Submit a detailed bug report to http://bugs.mysql.com.
+InnoDB: If you get repeated assertion failures or crashes, even
+InnoDB: immediately after the mysqld startup, there may be
+InnoDB: corruption in the InnoDB tablespace. Please refer to
+InnoDB: http://dev.mysql.com/doc/refman/5.7/en/forcing-innodb-recovery.html
+InnoDB: about forcing recovery
+```
+To  achieve the database recovery in this case a set of utilities from the [Undrop-for-innodb](https://github.com/maxsteciuk/undrop-for-innodb) repository is used.
 
 **CAUTION Please ensure backing up a MySQL database directory before proceeding with the below steps**
 
