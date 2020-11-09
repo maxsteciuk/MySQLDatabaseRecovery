@@ -1,4 +1,4 @@
-# MySQLDatabaseRecovery
+# MySQL Database Recovery
 Instructions to recover a corrupted MySQL database
 
 In case a MySQL database is corrupted such as only its internal state is corrupted but data itself is intact it may still be possible to recover a database. The symptom of such corruption is that MySQL has failed to load database tables due to corrupted or missing indexes. The sample error logging when such corruption has happened looks as follows:
