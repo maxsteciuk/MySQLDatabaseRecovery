@@ -38,7 +38,7 @@ To  achieve the database recovery in this case a set of utilities from the [Undr
 ./stream_parser -f <table_name>.ibd
 ```
 
-5. Parse MySQL table from its corresponding **.ibd** parsed page index given its **create table** schema:
+5. Parse MySQL table from its corresponding **.ibd** parsed page index given its **create table** schema. The page index number can be found by looking up **PRIMARY** column value in the parsed **dumps/SYSTABLE** and correlating it with a corresponding row in the parsed **dumps/SYSINDEX**. Then using that information run the following command:
 ```
 ./c_parser -6f ./pages-<table_name>.ibd/FIL_PAGE_INDEX/0000000000000222.page -t create_<table_name>.sql > dumps/<table_name>.tsv 2> load_cmd.sql
 ```
